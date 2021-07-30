@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.razorpay.PaymentResultListener;
 
 import java.util.ArrayList;
 
@@ -28,7 +29,7 @@ import java.util.ArrayList;
  * Use the {@link buyFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class buyFragment extends Fragment {
+public class buyFragment extends Fragment  {
     RecyclerView recyclerView;
     DatabaseReference reference,ref;
     SecondAdapter adapter;
@@ -132,4 +133,6 @@ public class buyFragment extends Fragment {
         super.onStop();
         adapter.stopListening();
     }
+
+
 }

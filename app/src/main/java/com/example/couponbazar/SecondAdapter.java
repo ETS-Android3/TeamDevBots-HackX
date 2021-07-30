@@ -1,5 +1,6 @@
 package com.example.couponbazar;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,10 +16,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.razorpay.PaymentResultListener;
 
 import java.util.ArrayList;
 
-public class SecondAdapter extends FirebaseRecyclerAdapter<Buy,SecondAdapter.MyViewHolderr> {
+public class SecondAdapter extends FirebaseRecyclerAdapter<Buy,SecondAdapter.MyViewHolderr>  {
 //    Context context;
 //    ArrayList<Buy> list;
     private OnItemClickListener mlistener;
@@ -43,7 +46,9 @@ public class SecondAdapter extends FirebaseRecyclerAdapter<Buy,SecondAdapter.MyV
             }
         });
 
+
     }
+
 
     @NonNull
     @Override
@@ -51,6 +56,8 @@ public class SecondAdapter extends FirebaseRecyclerAdapter<Buy,SecondAdapter.MyV
         View v=LayoutInflater.from(parent.getContext()).inflate(R.layout.buy_sales,parent,false);
         return new MyViewHolderr(v);
     }
+
+
 
     public interface OnItemClickListener{
         void OnItemClick(int position);
