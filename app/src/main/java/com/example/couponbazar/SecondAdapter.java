@@ -1,14 +1,10 @@
 package com.example.couponbazar;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,9 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.razorpay.PaymentResultListener;
-
-import java.util.ArrayList;
 
 public class SecondAdapter extends FirebaseRecyclerAdapter<Buy,SecondAdapter.MyViewHolderr>  {
 //    Context context;
@@ -40,6 +33,7 @@ public class SecondAdapter extends FirebaseRecyclerAdapter<Buy,SecondAdapter.MyV
         holder.btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
                 AppCompatActivity activity = (AppCompatActivity)v.getContext();
                 activity.getSupportFragmentManager().beginTransaction().replace(R.id.wrapper,new PaymentFragment(model.getPhoneNo(),model.getPrice(),model.getBrand(),model.getCode(),model.getBenefits())).addToBackStack(null).commit();
@@ -102,9 +96,9 @@ public class SecondAdapter extends FirebaseRecyclerAdapter<Buy,SecondAdapter.MyV
 
         public MyViewHolderr(@NonNull View itemView) {
             super(itemView);
-            cou_pno=itemView.findViewById(R.id.pno);
-            cou_brand=itemView.findViewById(R.id.brandd);
-            cou_ben=itemView.findViewById(R.id.bene);
+            cou_pno=itemView.findViewById(R.id.code3);
+            cou_brand=itemView.findViewById(R.id.brand3);
+            cou_ben=itemView.findViewById(R.id.ben3);
             cou_price=itemView.findViewById(R.id.pricee);
             cou_name=itemView.findViewById(R.id.namee);
             btn=itemView.findViewById(R.id.buy_btn);

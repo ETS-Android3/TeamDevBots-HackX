@@ -21,7 +21,7 @@ import com.razorpay.PaymentResultListener;
 
 import org.json.JSONObject;
 
-public class PaymentFragment extends Fragment implements PaymentResultListener {
+public class PaymentFragment extends Fragment{
     String phoneNumber, price,brand,code,benefits;
     TextView pno;
     private String TAG =" main";
@@ -73,43 +73,14 @@ public class PaymentFragment extends Fragment implements PaymentResultListener {
         Intent i= new Intent(getActivity(),payment_gateway.class);
         i.putExtra("key_price",price);
         i.putExtra("key_pno",phoneNumber);
-        i.putExtra("key_code",code);
+        i.putExtra("key_codee",code);
         i.putExtra("key_ben",benefits);
         i.putExtra("key_brand",brand);
         startActivity(i);
-//        startpayment();
-
         return v;
     }
 
-    public void startpayment() {
-        final Activity activity = getActivity();
-        final Checkout co = new Checkout();
-        try {
-            Checkout.preload(activity.getApplicationContext());
-            JSONObject options = new JSONObject();
-            options.put("name", "Coupon Bazaar");
-            options.put("send_sms_hash",true);
-            options.put("description", "App Payment");
-            //You can omit the image option to fetch the image from dashboard
-            options.put("image", "https://rzp-mobile.s3.amazonaws.com/images/rzp.png");
-            options.put("currency", "INR");
-            String payment = price;
-            // amount is in paise so please multiple it by 100
-            //Payment failed Invalid amount (should be passed in integer paise. Minimum value is 100 paise, i.e. ₹ 1)
-            double total = Double.parseDouble(payment);
-            total = total * 100;
-            options.put("amount", total);
-            JSONObject preFill = new JSONObject();
-            preFill.put("email", "kamal.bunkar07@gmail.com");
-            preFill.put("contact", phoneNumber);
-            options.put("prefill", preFill);
-            co.open(getActivity(), options);
-        } catch (Exception e) {
-            Toast.makeText(getActivity(), "Error in payment: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-            e.printStackTrace();
-        }
-    }
+
 
     public void onBackPressed() {
 
@@ -117,18 +88,7 @@ public class PaymentFragment extends Fragment implements PaymentResultListener {
         activity.getSupportFragmentManager().beginTransaction().replace(R.id.wrapper,new buyFragment()).addToBackStack(null).commit();
     }
 
-    @Override
-    public void onPaymentSuccess(String s) {
-        Toast.makeText(getActivity(), "Payment successfully done! " +s, Toast.LENGTH_SHORT).show();
-    }
 
-    @Override
-    public void onPaymentError(int i, String s) {
 
-        try {
-            Toast.makeText(getActivity(), "Payment error please try again", Toast.LENGTH_SHORT).show();
-        } catch (Exception e) {
-            Log.e("OnPaymentError", "Exception in onPaymentError", e);
-        }
-    }
+
 }

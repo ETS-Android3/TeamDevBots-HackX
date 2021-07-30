@@ -1,5 +1,6 @@
 package com.example.couponbazar;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +17,8 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class contactUsFragment extends Fragment {
+    EditText msg,sub;
+    Button send;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -58,7 +63,34 @@ public class contactUsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_contact_us, container, false);
+        View v=inflater.inflate(R.layout.fragment_contact_us, container, false);
+        msg=v.findViewById(R.id.msg);
+        sub=v.findViewById(R.id.sub);
+        send=v.findViewById(R.id.send);
+        send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendMail();
+            }
+        });
+
+        return v;
+    }
+
+    private void sendMail() {
+        String recipientlist = "vanshbulani6@gmail.com";
+        String[]  recipient=recipientlist.split(",");
+        String subject = sub.getText().toString().trim();
+        String message=msg.getText().toString().trim();
+        Intent intent= new Intent(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_EMAIL,recipient);
+        intent.putExtra(Intent.EXTRA_SUBJECT,subject);
+        intent.putExtra(Intent.EXTRA_TEXT,message);
+        intent.setType("message/rfc822");
+        startActivity(intent.createChooser(intent,"Choose an email client"));
+
+
+
+
     }
 }

@@ -58,7 +58,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/pno"
+                android:id="@+id/code3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
@@ -86,7 +86,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/brandd"
+                android:id="@+id/brand3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
@@ -114,7 +114,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/bene"
+                android:id="@+id/ben3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="4dp"

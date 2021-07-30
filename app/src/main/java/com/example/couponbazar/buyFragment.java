@@ -72,52 +72,6 @@ public class buyFragment extends Fragment  {
         adapter=new SecondAdapter(options);
         recyclerView.setAdapter(adapter);
 
-//        reference= FirebaseDatabase.getInstance().getReference("Sales2");
-//        list=new ArrayList<Buy>();
-//        adapter=new SecondAdapter(list);
-//        recyclerView.setAdapter(adapter);
-//        reference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for(DataSnapshot dataSnapshot:snapshot.getChildren()){
-//                    Buy m=dataSnapshot.getValue(Buy.class);
-//                    list.add(m);
-//                }
-//                adapter.notifyDataSetChanged();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-//        adapter.setOnItemClickListener(new SecondAdapter.OnItemClickListener() {
-//            @Override
-//            public void OnItemClick(int position) {
-//                try {
-//                    Intent i = new Intent(getActivity(), payment_gateway.class);
-//                    ref=FirebaseDatabase.getInstance().getReference("Sales2");
-//                    ref.addValueEventListener(new ValueEventListener() {
-//                        @Override
-//                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                            Buy buy = snapshot.getValue(Buy.class);
-//                            if(buy != null){
-//                                i.putExtra("key_pno",buy.phoneNo);
-//                                i.putExtra("key_price",buy.price);
-//                                startActivity(i);
-//                            }
-//                        }
-//
-//                        @Override
-//                        public void onCancelled(@NonNull DatabaseError error) {
-//
-//                        }
-//                    });
-//                }catch (Exception e){
-//                    Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
 
 
 

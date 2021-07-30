@@ -16,23 +16,11 @@ public class MyCoupons {
         return code;
     }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
-
     public String getBrand() {
         return brand;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
     public String getBenefits() {
         return benefits;
-    }
-
-    public void setBenefits(String benefits) {
-        this.benefits = benefits;
     }
 }

@@ -9,6 +9,9 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.razorpay.Checkout;
 import com.razorpay.PaymentResultListener;
 
@@ -16,18 +19,19 @@ import org.json.JSONObject;
 
 public class payment_gateway extends AppCompatActivity implements PaymentResultListener {
     TextView pricee,pno;
-    String phone,price,code,brand,benefits;
+    String phone,price, codee,brand,benefits;
+    DatabaseReference ref,ref2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_gateway);
-        pricee=findViewById(R.id.textView3);
-        pno=findViewById(R.id.textView4);
+//        pricee=findViewById(R.id.textView3);
+//        pno=findViewById(R.id.textView4);
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             phone = extras.getString("key_pno");
             price = extras.getString("key_price");
-            code = extras.getString("key_code");
+            codee = extras.getString("key_codee");
             benefits = extras.getString("key_ben");
             brand = extras.getString("key_brand");
         }
@@ -44,7 +48,7 @@ public class payment_gateway extends AppCompatActivity implements PaymentResultL
             options.put("send_sms_hash",true);
             options.put("description", "App Payment");
             //You can omit the image option to fetch the image from dashboard
-            options.put("image", "https://rzp-mobile.s3.amazonaws.com/images/rzp.png");
+            options.put("image", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2ssctLD-qR7A2ScxpcAmZP-LgIF_4r6fcDQ&usqp=CAU");
             options.put("currency", "INR");
             String payment = price;
             // amount is in paise so please multiple it by 100
@@ -65,9 +69,12 @@ public class payment_gateway extends AppCompatActivity implements PaymentResultL
 
     @Override
     public void onPaymentSuccess(String s) {
-        Toast.makeText(this, "Payment successfully done! " +s, Toast.LENGTH_SHORT).show();
 
+        MyCoupons mc = new MyCoupons("xyz123",brand,benefits);
+        ref= FirebaseDatabase.getInstance().getReference("CouponsBought").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("c");
+        ref.setValue(mc);
         Intent i = new Intent(this,HomeActivity.class);
+        i.putExtra("key_trans",s);
         startActivity(i);
     }
 
