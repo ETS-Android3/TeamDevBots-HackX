@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -36,7 +37,9 @@ public class SecondAdapter extends FirebaseRecyclerAdapter<Buy,SecondAdapter.MyV
         holder.btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+
+                AppCompatActivity activity = (AppCompatActivity)v.getContext();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.wrapper,new PaymentFragment(model.getPhoneNo(),model.getPrice())).addToBackStack(null).commit();
             }
         });
 
