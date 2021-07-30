@@ -1,0 +1,50 @@
+<!DOCTYPE htext>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="css/intro.css">
+    <style>
+        .container .row{
+            margin-bottom: 150px!important;
+        }
+    </style>
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    <%- include('partials/link') %>
+    <div class="container-fluid ps-md-0">
+        <div class="row g-0">
+          <div class="col-md-8 col-lg-6">
+            <div class="login d-flex align-items-center">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-9 col-lg-8 mx-auto">
+                    <h1 class="login-heading mb-4">Contact Us</h1>
+                    <form>
+                        <div class="form-floating mb-3">
+                          <input class="form-control" id="floatingsubject" placeholder="subject">
+                          <label for="floatingsubject">subject</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                          <input class="form-control" id="floatingmessage" placeholder="message" style="height: 200px;">
+                          <label for="floatingmessage">message</label>
+                        </div>
+      
+                        <div class="d-grid">
+                            <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Send</button>
+                          </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+</body>
+</html>
+

@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>sale</title>
+    <link rel="stylesheet" href="css/intro.css">
+    <style>
+        .container .row{
+            margin-bottom: 80px!important;
+        }
+    </style>
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    <%- include('partials/link') %>
+    <div class="container-fluid ps-md-0">
+        <div class="row g-0">
+          <div class="col-md-8 col-lg-6">
+            <div class="login d-flex align-items-center">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-9 col-lg-8 mx-auto">
+                    <h1 class="login-heading mb-4">Sale</h1>
+                    <form action="/buy" method="post">
+                        <div class="form-floating mb-3">
+                          <input type="text" name="brand" class="form-control" id="floatingbrand" placeholder="brand">
+                          <label for="floatingbrand">coupon brand</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                          <input type="text" name="description" class="form-control" id="floatingdescription" placeholder="description" style="height: 200px;">
+                          <label for="floatingdescription">description</label>
+                        </div>
+      
+                        <div class="form-floating mb-3">
+                          <input type="text" name="code" class="form-control" id="floatingcode" placeholder="code">
+                          <label for="floatingcode">coupon code</label>
+                          </div>
+                          <div class="form-floating mb-3">
+                            <input type="number" name="prize" class="form-control" id="floatingprize" placeholder="prize">
+                            <label for="floatingprize">selling prize</label>
+                          </div>
+                        <div class="d-grid">
+                            <button name="btn" class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Sell</button>
+                          </div>
+        
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+</body>
+</html>
+
