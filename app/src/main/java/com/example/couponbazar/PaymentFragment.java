@@ -1,6 +1,9 @@
 package com.example.couponbazar;
 
+import static com.firebase.ui.auth.AuthUI.getApplicationContext;
+
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,18 +21,17 @@ import com.razorpay.PaymentResultListener;
 
 import org.json.JSONObject;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link PaymentFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class PaymentFragment extends Fragment implements PaymentResultListener {
-    String phoneNumber, price;
+    String phoneNumber, price,brand,code,benefits;
+    TextView pno;
     private String TAG =" main";
 
-    public PaymentFragment(String phoneNumber, String price) {
+    public PaymentFragment(String phoneNumber, String price, String brand, String code, String benefits) {
         this.phoneNumber = phoneNumber;
         this.price = price;
+        this.brand = brand;
+        this.code = code;
+        this.benefits = benefits;
     }
 
     private static final String ARG_PARAM1 = "param1";
@@ -64,11 +66,19 @@ public class PaymentFragment extends Fragment implements PaymentResultListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v=inflater.inflate(R.layout.fragment_payment, container, false);
-        TextView pno=v.findViewById(R.id.PNO);
+        pno=v.findViewById(R.id.PNO);
         TextView amount=v.findViewById(R.id.Price);
         pno.setText(phoneNumber);
         amount.setText(price);
-        startpayment();
+        Intent i= new Intent(getActivity(),payment_gateway.class);
+        i.putExtra("key_price",price);
+        i.putExtra("key_pno",phoneNumber);
+        i.putExtra("key_code",code);
+        i.putExtra("key_ben",benefits);
+        i.putExtra("key_brand",brand);
+        startActivity(i);
+//        startpayment();
+
         return v;
     }
 
@@ -76,8 +86,10 @@ public class PaymentFragment extends Fragment implements PaymentResultListener {
         final Activity activity = getActivity();
         final Checkout co = new Checkout();
         try {
+            Checkout.preload(activity.getApplicationContext());
             JSONObject options = new JSONObject();
-            options.put("name", "BlueApp Software");
+            options.put("name", "Coupon Bazaar");
+            options.put("send_sms_hash",true);
             options.put("description", "App Payment");
             //You can omit the image option to fetch the image from dashboard
             options.put("image", "https://rzp-mobile.s3.amazonaws.com/images/rzp.png");
@@ -112,7 +124,7 @@ public class PaymentFragment extends Fragment implements PaymentResultListener {
 
     @Override
     public void onPaymentError(int i, String s) {
-        Log.e(TAG,  "error code "+String.valueOf(i)+" -- Payment failed "+s.toString()  );
+
         try {
             Toast.makeText(getActivity(), "Payment error please try again", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {

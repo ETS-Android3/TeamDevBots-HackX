@@ -42,7 +42,7 @@ public class SecondAdapter extends FirebaseRecyclerAdapter<Buy,SecondAdapter.MyV
             public void onClick(View v) {
 
                 AppCompatActivity activity = (AppCompatActivity)v.getContext();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.wrapper,new PaymentFragment(model.getPhoneNo(),model.getPrice())).addToBackStack(null).commit();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.wrapper,new PaymentFragment(model.getPhoneNo(),model.getPrice(),model.getBrand(),model.getCode(),model.getBenefits())).addToBackStack(null).commit();
             }
         });
 

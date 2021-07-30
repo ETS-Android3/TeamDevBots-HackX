@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ public class HomeActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager2 viewPager;
     fragmentAdapter adapter;
+    int value=0;
 
 
     @Override
@@ -57,6 +59,7 @@ public class HomeActivity extends AppCompatActivity {
                 tabLayout.selectTab(tabLayout.getTabAt(position));
             }
         });
+
 
     }
 }

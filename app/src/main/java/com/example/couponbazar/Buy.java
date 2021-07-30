@@ -1,17 +1,22 @@
 package com.example.couponbazar;
 
 public class Buy {
-    String name,benefits,price,brand,phoneNo;
+    String name,benefits,price,brand,phoneNo,code;
+
+    public String getCode() {
+        return code;
+    }
 
     public Buy() {
     }
 
-    public Buy(String name, String benefits, String price, String brand, String phoneNo) {
+    public Buy(String name, String benefits, String price, String brand, String phoneNo,String code) {
         this.name = name;
         this.benefits = benefits;
         this.price = price;
         this.brand = brand;
         this.phoneNo = phoneNo;
+        this.code = code;
     }
 
     public String getName() {

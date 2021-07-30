@@ -95,7 +95,7 @@ public class addSaleFragment extends Fragment {
                 String brand = couBrand.getText().toString().trim();
                 String benefits = couBen.getText().toString().trim();
                 String codee = couCode.getText().toString().trim();
-                Buy buy= new Buy(name,benefits,price,brand,pnumber);
+                Buy buy= new Buy(name,benefits,price,brand,pnumber,codee);
                     reff2=FirebaseDatabase.getInstance().getReference().child("Sales2").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
             }
 
@@ -146,7 +146,7 @@ public class addSaleFragment extends Fragment {
                         String brand = couBrand.getText().toString().trim();
                         String benefits = couBen.getText().toString().trim();
                         String codee = couCode.getText().toString().trim();
-                        Buy buy= new Buy(name,benefits,price,brand,pnumber);
+                        Buy buy= new Buy(name,benefits,price,brand,pnumber,codee);
                         reff2=FirebaseDatabase.getInstance().getReference().child("Sales2").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
                         reff2.setValue(buy);
                     }
