@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "189679255046",
+    "project_id": "coupon-bazaar-dd8ec",
+    "storage_bucket": "coupon-bazaar-dd8ec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:189679255046:android:3fa52e51bbdf3968e64d87",
+        "android_client_info": {
+          "package_name": "com.example.couponbazar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "189679255046-pn1frs356dr8v8f5nuo3ihh8muvos8ii.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsvtlc18KT2fp3FfIg3LU8DncgdsYPgHo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "189679255046-pn1frs356dr8v8f5nuo3ihh8muvos8ii.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
