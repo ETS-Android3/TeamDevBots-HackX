@@ -1,4 +1,11 @@
 # Coupon Bazar mobile app  by DevBots
+
+## Team name: DevBots
+## Members : 
+* Vansh Bulani   
+* Ashwath    
+* Vishal
+## Track : Open Innovation
 *Website's code is pushed on the branch'OurWebsite"*
 
 [click here for our power-point presentation](coupon%20bazor_final.pdf)
