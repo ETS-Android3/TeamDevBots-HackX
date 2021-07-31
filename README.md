@@ -1,8 +1,9 @@
 # Coupon Bazar mobile app  by DevBots
 *Website's code is pushed on the branch'OurWebsite"*
-### **Problem statement :**
 
 [click here for our power-point presentation](coupon%20bazor_final.pdf)
+
+### **Problem statement :**
 
 *Coupons can be really helpful while buying online products but people don't have time to find it and it's difficult too.*
 
