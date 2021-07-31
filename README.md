@@ -2,7 +2,7 @@
 *Website's code is pushed on the branch'OurWebsite"*
 ### **Problem statement :**
 
-[our power-point presentation](coupon%20bazor_final.pdf)
+[click here for our power-point presentation](coupon%20bazor_final.pdf)
 
 *Coupons can be really helpful while buying online products but people don't have time to find it and it's difficult too.*
 
