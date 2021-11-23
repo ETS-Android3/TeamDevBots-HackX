@@ -9,6 +9,7 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.couponbazar.Model.MyCoupons;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -71,7 +72,7 @@ public class payment_gateway extends AppCompatActivity implements PaymentResultL
     public void onPaymentSuccess(String s) {
 
         MyCoupons mc = new MyCoupons("xyz123",brand,benefits);
-        ref= FirebaseDatabase.getInstance().getReference("CouponsBought").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("c");
+        ref= FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("CouponsBought").push();
         ref.setValue(mc);
         Intent i = new Intent(this,HomeActivity.class);
         i.putExtra("key_trans",s);

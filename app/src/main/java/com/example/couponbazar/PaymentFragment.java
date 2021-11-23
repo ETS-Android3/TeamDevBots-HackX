@@ -1,25 +1,17 @@
 package com.example.couponbazar;
 
-import static com.firebase.ui.auth.AuthUI.getApplicationContext;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.razorpay.Checkout;
-import com.razorpay.PaymentResultListener;
-
-import org.json.JSONObject;
+import com.example.couponbazar.Fragments.buyFragment;
 
 public class PaymentFragment extends Fragment{
     String phoneNumber, price,brand,code,benefits;

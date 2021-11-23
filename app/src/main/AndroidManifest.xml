@@ -15,8 +15,8 @@
         <activity
             android:name=".payment_gateway"
             android:exported="true" />
-        <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".SignupActivity" />
+        <activity android:name=".Authentication.LoginActivity"></activity>
+        <activity android:name=".Authentication.SignupActivity" />
         <activity android:name=".HomeActivity"></activity>
         <activity android:name=".Splash_screen">
             <intent-filter>

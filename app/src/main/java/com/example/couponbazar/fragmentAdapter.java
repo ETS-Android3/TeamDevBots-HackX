@@ -6,6 +6,13 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
+import com.example.couponbazar.Fragments.aboutUsFragment;
+import com.example.couponbazar.Fragments.addSaleFragment;
+import com.example.couponbazar.Fragments.buyFragment;
+import com.example.couponbazar.Fragments.contactUsFragment;
+import com.example.couponbazar.Fragments.yourBuyFragment;
+import com.example.couponbazar.Fragments.yourSaleFragment;
+
 public class fragmentAdapter extends FragmentStateAdapter {
 
     public fragmentAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {

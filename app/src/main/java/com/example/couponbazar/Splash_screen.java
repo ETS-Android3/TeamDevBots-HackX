@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
 
+import com.example.couponbazar.Authentication.LoginActivity;
+import com.example.couponbazar.Authentication.SignupActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -19,9 +21,6 @@ public class Splash_screen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //below statement is not show full screen but its not good looking...check it if u want
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-//                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_splash_screen);
 
@@ -36,10 +35,10 @@ public class Splash_screen extends AppCompatActivity {
             public void run() {
 
                 if(currentUser==null){
-                    startActivity(new Intent(Splash_screen.this,SignupActivity.class));
+                    startActivity(new Intent(Splash_screen.this, SignupActivity.class));
                     finish();
                 }else{
-                    Intent i=new Intent(Splash_screen.this,LoginActivity.class);
+                    Intent i=new Intent(Splash_screen.this, LoginActivity.class);
                     startActivity(i);
                     finish();
                 }
